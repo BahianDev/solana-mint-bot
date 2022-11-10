@@ -128,22 +128,9 @@ def mint(values, isWindows):
 
     options = Options()
 
-    # options = webdriver.FirefoxOptions()
-
-    FIREFOXPATH = which("firefox")
-
-    
-
-    options.binary = FIREFOXPATH
 
     options.add_extension("Phantom.crx")
     options.add_argument("--disable-gpu")
-    # options.add_argument("-headless")
-    # options.add_argument("--start-maximized")
-
-
-
-
 
     prefs = {"profile.managed_default_content_settings.images": 2}
     options.add_experimental_option("prefs", prefs)
@@ -152,7 +139,7 @@ def mint(values, isWindows):
     os.environ['WDM8LOCAL'] = '1'
 
 
-    driver = webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=options)
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)
     print("Assertion - successfully found chrome driver")
     
 
